@@ -71,7 +71,7 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-
+#以下由我添加
       - name: Generate configuration file
         run: |
           rm -f ./.config*
@@ -85,6 +85,7 @@ jobs:
           CONFIG_TARGET_IMAGES_GZIP=y
           CONFIG_KERNEL_BUILD_USER="OpenWrt-CI"
           CONFIG_KERNEL_BUILD_DOMAIN="Azure"
+          
           EOF
 
           #
@@ -93,6 +94,7 @@ jobs:
 
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
+#以上由我添加
 
       - name: Make download
         run: |
