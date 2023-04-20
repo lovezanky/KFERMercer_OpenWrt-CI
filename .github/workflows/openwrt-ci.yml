@@ -10,11 +10,23 @@
 name: OpenWrt-CI
 
 on:
-  push:
-    branches: 
-      - master
+ # push:
+  #  branches: 
+   #   - master
   # schedule:
   #   - cron: 0 20 * * *
+  #以下是我添加的
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+#以上是我添加的
+permissions:
+  contents: read
+
   release:
     types: [published]
 
