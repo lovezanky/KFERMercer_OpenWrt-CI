@@ -26,10 +26,7 @@ on:
 #以上是我添加的
 permissions:
   contents: read
-
-  release:
-    types: [published]
-
+  
 jobs:
 
   build_openwrt:
